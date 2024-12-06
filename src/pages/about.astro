@@ -1,0 +1,32 @@
+---
+import AnimatedBackground from '../components/AnimatedBackground';
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="About">
+  <AnimatedBackground client:load />
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="max-w-3xl mx-auto">
+      <h1 class="text-3xl font-extrabold text-white">
+        About GoFlutter
+      </h1>
+      <div class="mt-6 text-gray-500 space-y-6">
+        <p>
+          GoFlutter is dedicated to providing high-quality solutions for Flutter developers. Our mission is to create and maintain packages that solve real-world problems in Flutter development.
+        </p>
+        <p>
+          We believe in open source and community-driven development. All our packages are freely available on pub.dev and GitHub, where we welcome contributions from the Flutter community.
+        </p>
+        <p>
+          Our packages are built with a focus on:
+        </p>
+        <ul class="list-disc list-inside ml-4 space-y-2">
+          <li>Code quality and maintainability</li>
+          <li>Comprehensive documentation</li>
+          <li>Real-world use cases</li>
+          <li>Performance optimization</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</Layout>

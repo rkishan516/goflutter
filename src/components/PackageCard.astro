@@ -1,0 +1,49 @@
+---
+interface Package {
+  name: string;
+  description: string;
+  image: string;
+  pubDevUrl: string;
+  githubUrl: string;
+  docsUrl?: string;
+}
+
+interface Props {
+  package: Package;
+}
+
+const { package: pkg } = Astro.props;
+---
+
+<div class="bg-white overflow-hidden shadow rounded-lg">
+  <div class="p-6">
+    <div class="flex items-center">
+      <div class="flex-shrink-0">
+        <img class="h-12 w-12" src={pkg.image} alt={pkg.name} />
+      </div>
+      <div class="ml-4">
+        <h3 class="text-lg font-medium text-gray-900">
+          {pkg.name}
+        </h3>
+      </div>
+    </div>
+    <div class="mt-4">
+      <p class="text-sm text-gray-500">
+        {pkg.description}
+      </p>
+    </div>
+    <div class="mt-6 flex space-x-3">
+      <a href={pkg.pubDevUrl} class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-flutter-blue hover:bg-flutter-blue/90">
+        pub.dev
+      </a>
+      <a href={pkg.githubUrl} class="inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50">
+        GitHub
+      </a>
+      {pkg.docsUrl && (
+        <a href={pkg.docsUrl} class="inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-white bg-flutter-blue hover:bg-flutter-blue/90">
+          Docs
+        </a>
+      )}
+    </div>
+  </div>
+</div>

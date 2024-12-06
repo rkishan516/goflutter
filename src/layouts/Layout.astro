@@ -1,0 +1,28 @@
+---
+import Header from '../components/Header.astro';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = "Solutions for Flutter problems and high-quality Flutter packages" } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/logo.png" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title} | GoFlutter</title>
+  </head>
+  <body class="min-h-screen bg-gray-50">
+    <Header />
+    <main class="pt-16">
+      <slot />
+    </main>
+  </body>
+</html>
