@@ -3,58 +3,143 @@ import Layout from '../layouts/Layout.astro';
 import PackageCard from '../components/PackageCard.astro';
 import AnimatedBackground from '../components/AnimatedBackground';
 import { packages } from './packages.astro';
+
+const stats = [
+  { value: '4+', label: 'Open Source Packages' },
+  { value: '100%', label: 'Free & Open Source' },
+  { value: 'pub.dev', label: 'Published On' },
+];
 ---
 
 <Layout title="Home">
   <AnimatedBackground client:load />
   <div class="relative min-h-screen">
-    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+    <!-- Hero Section -->
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-32">
       <div class="text-center">
-        
-        <h1 class="text-4xl tracking-tight font-extrabold text-white sm:text-5xl md:text-6xl opacity-0 animate-fadeIn">
-          <span class="block text-opacity-90">Streamlining</span>
-          <span class="block text-flutter-blue glow">Flutter Development</span>
+        <!-- Badge -->
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-flutter-blue/10 border border-flutter-blue/20 mb-8 opacity-0 animate-fadeIn">
+          <span class="relative flex h-2 w-2">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-flutter-blue opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2 w-2 bg-flutter-blue"></span>
+          </span>
+          <span class="text-sm font-medium text-flutter-blue">Building for Flutter developers</span>
+        </div>
+
+        <h1 class="text-4xl tracking-tight font-extrabold text-white sm:text-5xl md:text-6xl lg:text-7xl opacity-0 animate-fadeIn animation-delay-100">
+          <span class="block">Streamlining</span>
+          <span class="block text-flutter-blue glow mt-2">Flutter Development</span>
         </h1>
-        <p class="mt-3 max-w-md mx-auto text-base text-gray-100 sm:text-lg md:mt-5 md:text-xl md:max-w-3xl opacity-0 animate-fadeIn animation-delay-200">
-          Discover solutions, packages, and resources to enhance your Flutter development experience.
+
+        <p class="mt-6 max-w-2xl mx-auto text-lg sm:text-xl text-gray-300 leading-relaxed opacity-0 animate-fadeIn animation-delay-200">
+          Discover high-quality packages and tools designed to solve real-world Flutter development challenges.
         </p>
-        <div class="mt-5 max-w-md mx-auto sm:flex sm:justify-center md:mt-8 opacity-0 animate-fadeIn animation-delay-400">
-          <div class="rounded-md shadow-glow">
-            <a 
-              href="/packages" 
-              class="group w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-flutter-blue hover:bg-flutter-blue/90 transition-all duration-300 hover:scale-105 md:py-4 md:text-lg md:px-10"
-            >
-              <span class="relative">
-                Explore Packages
-                <span class="absolute bottom-0 left-0 w-full h-0.5 bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
-              </span>
-            </a>
-          </div>
+
+        <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center opacity-0 animate-fadeIn animation-delay-300">
+          <a
+            href="/packages"
+            class="group inline-flex items-center justify-center gap-2 px-8 py-4 text-base font-medium rounded-xl text-white bg-flutter-blue hover:bg-flutter-blue/90 shadow-xl shadow-flutter-blue/25 hover:shadow-flutter-blue/40 transition-all duration-300 hover:scale-105 hover:-translate-y-0.5"
+          >
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+            </svg>
+            Explore Packages
+            <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </a>
+          <a
+            href="https://github.com/rkishan516"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center gap-2 px-8 py-4 text-base font-medium rounded-xl text-gray-300 bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-300 hover:-translate-y-0.5"
+          >
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd" />
+            </svg>
+            View on GitHub
+          </a>
         </div>
       </div>
     </div>
 
-    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <h2 class="text-3xl font-extrabold text-white text-center mb-12 opacity-0 animate-fadeIn animation-delay-600">
-        Featured Packages
-      </h2>
-      <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-        {packages.slice(0,3).map((pkg, index) => (
-          <div class={`opacity-0 animate-fadeIn animation-delay-${800 + index * 200}`}>
+    <!-- Stats Section -->
+    <div class="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 opacity-0 animate-fadeIn animation-delay-400">
+        {stats.map((stat) => (
+          <div class="relative group">
+            <div class="absolute -inset-0.5 bg-gradient-to-r from-flutter-blue to-purple-500 rounded-xl opacity-0 group-hover:opacity-100 blur transition-all duration-500"></div>
+            <div class="relative bg-slate-900/80 backdrop-blur-sm rounded-xl border border-white/10 p-6 text-center transition-all group-hover:border-transparent">
+              <div class="text-3xl sm:text-4xl font-bold text-white mb-2">{stat.value}</div>
+              <div class="text-sm text-gray-400">{stat.label}</div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Featured Packages Section -->
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div class="text-center mb-12 opacity-0 animate-fadeIn animation-delay-500">
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white">
+          Featured Packages
+        </h2>
+        <p class="mt-4 text-lg text-gray-400 max-w-2xl mx-auto">
+          Our most popular packages, trusted by Flutter developers worldwide.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {packages.slice(0, 3).map((pkg, index) => (
+          <div class={`opacity-0 animate-fadeIn animation-delay-${600 + index * 100}`}>
             <PackageCard package={pkg} />
           </div>
         ))}
+      </div>
+
+      <div class="mt-12 text-center opacity-0 animate-fadeIn animation-delay-900">
+        <a
+          href="/packages"
+          class="inline-flex items-center gap-2 text-flutter-blue hover:text-flutter-blue/80 font-medium transition-colors group"
+        >
+          View all packages
+          <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- CTA Section -->
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 pb-24">
+      <div class="relative">
+        <div class="absolute -inset-1 bg-gradient-to-r from-flutter-blue via-purple-500 to-pink-500 rounded-2xl blur opacity-20"></div>
+        <div class="relative bg-slate-900/80 backdrop-blur-sm rounded-2xl border border-white/10 p-8 sm:p-12 text-center">
+          <h2 class="text-2xl sm:text-3xl font-bold text-white mb-4">
+            Ready to Enhance Your Flutter Workflow?
+          </h2>
+          <p class="text-gray-400 max-w-2xl mx-auto mb-8">
+            Start using our packages today and join the community of developers building better Flutter apps.
+          </p>
+          <a
+            href="https://pub.dev/publishers/goflutter.in/packages"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center gap-2 px-8 py-4 text-base font-medium rounded-xl text-white bg-flutter-blue hover:bg-flutter-blue/90 shadow-xl shadow-flutter-blue/25 hover:shadow-flutter-blue/40 transition-all duration-300 hover:scale-105"
+          >
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 0L1.5 6v12L12 24l10.5-6V6L12 0zm0 2.18l8.25 4.74v9.5L12 21.18l-8.25-4.76v-9.5L12 2.18z"/>
+            </svg>
+            Browse on pub.dev
+          </a>
+        </div>
       </div>
     </div>
   </div>
 
   <style>
     .glow {
-      text-shadow: 0 0 20px rgba(19, 137, 253, 0.5);
-    }
-
-    .shadow-glow {
-      box-shadow: 0 0 20px rgba(19, 137, 253, 0.3);
+      text-shadow: 0 0 40px rgba(2, 125, 253, 0.4);
     }
 
     @keyframes fadeIn {
@@ -69,31 +154,17 @@ import { packages } from './packages.astro';
     }
 
     .animate-fadeIn {
-      animation: fadeIn 0.8s ease-out forwards;
+      animation: fadeIn 0.6s ease-out forwards;
     }
 
-    .animation-delay-200 {
-      animation-delay: 200ms;
-    }
-
-    .animation-delay-400 {
-      animation-delay: 400ms;
-    }
-
-    .animation-delay-600 {
-      animation-delay: 600ms;
-    }
-
-    .animation-delay-800 {
-      animation-delay: 800ms;
-    }
-
-    .animation-delay-1000 {
-      animation-delay: 1000ms;
-    }
-
-    .animation-delay-1200 {
-      animation-delay: 1200ms;
-    }
+    .animation-delay-100 { animation-delay: 100ms; }
+    .animation-delay-200 { animation-delay: 200ms; }
+    .animation-delay-300 { animation-delay: 300ms; }
+    .animation-delay-400 { animation-delay: 400ms; }
+    .animation-delay-500 { animation-delay: 500ms; }
+    .animation-delay-600 { animation-delay: 600ms; }
+    .animation-delay-700 { animation-delay: 700ms; }
+    .animation-delay-800 { animation-delay: 800ms; }
+    .animation-delay-900 { animation-delay: 900ms; }
   </style>
 </Layout>

@@ -1,5 +1,6 @@
 ---
 import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
 
 interface Props {
   title: string;
@@ -10,19 +11,70 @@ const { title, description = "Solutions for Flutter problems and high-quality Fl
 ---
 
 <!doctype html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="scroll-smooth dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/logo.png" />
     <meta name="generator" content={Astro.generator} />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content={`${title} | GoFlutter`} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="GoFlutter" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={`${title} | GoFlutter`} />
+    <meta name="twitter:description" content={description} />
+
     <title>{title} | GoFlutter</title>
   </head>
-  <body class="min-h-screen bg-gray-50">
+  <body class="min-h-screen bg-slate-950 text-white flex flex-col antialiased">
     <Header />
-    <main class="pt-16">
+    <main class="pt-20 flex-1">
       <slot />
     </main>
+    <Footer />
   </body>
 </html>
+
+<style is:global>
+  /* Custom selection color */
+  ::selection {
+    background-color: rgba(2, 125, 253, 0.3);
+    color: white;
+  }
+
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Custom scrollbar for webkit browsers */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: rgb(15 23 42);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgb(51 65 85);
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgb(71 85 105);
+  }
+
+  /* Focus styles */
+  *:focus-visible {
+    outline: 2px solid #027DFD;
+    outline-offset: 2px;
+  }
+</style>

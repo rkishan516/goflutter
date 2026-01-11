@@ -1,31 +1,132 @@
 ---
 import AnimatedBackground from '../components/AnimatedBackground';
 import Layout from '../layouts/Layout.astro';
+
+const features = [
+  {
+    icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>`,
+    title: 'Production Ready',
+    description: 'Battle-tested packages used in real-world applications with comprehensive test coverage.'
+  },
+  {
+    icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" /></svg>`,
+    title: 'Well Documented',
+    description: 'Clear documentation with examples, API references, and guides to get you started quickly.'
+  },
+  {
+    icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>`,
+    title: 'Performance First',
+    description: 'Optimized for speed and efficiency, ensuring your apps run smoothly on all devices.'
+  },
+  {
+    icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" /></svg>`,
+    title: 'Community Driven',
+    description: 'Open source packages built with community feedback and contributions in mind.'
+  },
+];
+
+const values = [
+  'Simplicity over complexity',
+  'Developer experience matters',
+  'Quality over quantity',
+  'Open source first',
+];
 ---
 
 <Layout title="About">
   <AnimatedBackground client:load />
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-    <div class="max-w-3xl mx-auto">
-      <h1 class="text-3xl font-extrabold text-white">
-        About GoFlutter
-      </h1>
-      <div class="mt-6 text-gray-500 space-y-6">
-        <p>
-          GoFlutter is dedicated to providing high-quality solutions for Flutter developers. Our mission is to create and maintain packages that solve real-world problems in Flutter development.
+  <div class="relative">
+    <!-- Hero Section -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
+      <div class="text-center max-w-3xl mx-auto">
+        <h1 class="text-4xl sm:text-5xl font-extrabold text-white tracking-tight">
+          About <span class="text-flutter-blue">GoFlutter</span>
+        </h1>
+        <p class="mt-6 text-xl text-gray-300 leading-relaxed">
+          We're dedicated to creating high-quality Flutter packages that solve real-world development challenges and make your life easier.
         </p>
-        <p>
-          We believe in open source and community-driven development. All our packages are freely available on pub.dev and GitHub, where we welcome contributions from the Flutter community.
+      </div>
+    </div>
+
+    <!-- Mission Section -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
+      <div class="relative">
+        <div class="absolute -inset-1 bg-gradient-to-r from-flutter-blue via-purple-500 to-pink-500 rounded-2xl blur opacity-20"></div>
+        <div class="relative bg-slate-900/80 backdrop-blur-sm rounded-2xl border border-white/10 p-8 sm:p-12">
+          <div class="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 class="text-2xl sm:text-3xl font-bold text-white mb-6">Our Mission</h2>
+              <p class="text-gray-400 leading-relaxed mb-4">
+                GoFlutter was born from a simple idea: Flutter developers deserve better tools. We create and maintain packages that solve common challenges, so you can focus on building amazing apps.
+              </p>
+              <p class="text-gray-400 leading-relaxed">
+                Every package we build is crafted with care, thoroughly tested, and designed to integrate seamlessly into your workflow. We believe in open source and welcome contributions from the Flutter community.
+              </p>
+            </div>
+            <div class="space-y-4">
+              <h3 class="text-lg font-semibold text-white mb-4">Our Values</h3>
+              {values.map((value, index) => (
+                <div class="flex items-center gap-3 group">
+                  <div class="flex-shrink-0 w-8 h-8 rounded-lg bg-flutter-blue/10 border border-flutter-blue/20 flex items-center justify-center text-flutter-blue font-semibold text-sm group-hover:bg-flutter-blue group-hover:text-white transition-colors">
+                    {index + 1}
+                  </div>
+                  <span class="text-gray-300">{value}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Features Grid -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
+      <h2 class="text-2xl sm:text-3xl font-bold text-white text-center mb-12">Why Choose Our Packages</h2>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {features.map(feature => (
+          <div class="group relative">
+            <div class="absolute -inset-0.5 bg-gradient-to-r from-flutter-blue to-purple-500 rounded-xl opacity-0 group-hover:opacity-100 blur transition-all duration-500"></div>
+            <div class="relative h-full bg-slate-900/80 backdrop-blur-sm rounded-xl border border-white/10 p-6 transition-all duration-300 group-hover:border-transparent">
+              <div class="w-12 h-12 rounded-lg bg-flutter-blue/10 border border-flutter-blue/20 flex items-center justify-center text-flutter-blue mb-4 group-hover:bg-flutter-blue group-hover:text-white transition-colors">
+                <Fragment set:html={feature.icon} />
+              </div>
+              <h3 class="text-lg font-semibold text-white mb-2">{feature.title}</h3>
+              <p class="text-sm text-gray-400 leading-relaxed">{feature.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- CTA Section -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-24">
+      <div class="text-center">
+        <h2 class="text-2xl sm:text-3xl font-bold text-white mb-4">Ready to Get Started?</h2>
+        <p class="text-gray-400 mb-8 max-w-2xl mx-auto">
+          Explore our collection of Flutter packages and find the perfect tools for your next project.
         </p>
-        <p>
-          Our packages are built with a focus on:
-        </p>
-        <ul class="list-disc list-inside ml-4 space-y-2">
-          <li>Code quality and maintainability</li>
-          <li>Comprehensive documentation</li>
-          <li>Real-world use cases</li>
-          <li>Performance optimization</li>
-        </ul>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a
+            href="/packages"
+            class="inline-flex items-center justify-center gap-2 px-6 py-3 text-base font-medium rounded-lg text-white bg-flutter-blue hover:bg-flutter-blue/90 shadow-lg shadow-flutter-blue/25 hover:shadow-flutter-blue/40 transition-all duration-200 hover:-translate-y-0.5"
+          >
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+            </svg>
+            View Packages
+          </a>
+          <a
+            href="https://github.com/rkishan516"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center gap-2 px-6 py-3 text-base font-medium rounded-lg text-gray-300 bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-200 hover:-translate-y-0.5"
+          >
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd" />
+            </svg>
+            GitHub
+          </a>
+        </div>
       </div>
     </div>
   </div>
